@@ -39,6 +39,9 @@ def get_img_Info(i,j,ID,inp):
 	img_S = re.search(image_S,html).group(1) + re.search(image_S,html).group(2)
 	img_title = re.search(image_title,html).group(1)
 
+	clean = re.compile('/',re.DOTALL)
+	img_title = clean.sub('-',img_title)
+
 	if inp == 'ss':
 		width_S = re.compile('width="(\d+)"')
 		height_S = re.compile('height="(\d+)"')
